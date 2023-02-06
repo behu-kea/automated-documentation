@@ -26,7 +26,6 @@ for path, subdirs, files in os.walk(destination_folder):
     for name in files:
         if fnmatch(name, pattern):
             file_directory = os.path.join(path, name)
-            # print(file_directory)
             java_file_directories.append(file_directory)
 
 
@@ -61,7 +60,8 @@ def save_to_file(content, filename):
 
 
 start = 20
-for file_directory in java_file_directories[start:start + 1]:
+#for file_directory in java_file_directories[start:start + 1]:
+for file_directory in java_file_directories:
     print("started commenting" + file_directory)
     with open(file_directory, "r") as file:
         java_code = file.read()
